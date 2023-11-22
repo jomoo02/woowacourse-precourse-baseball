@@ -49,7 +49,7 @@ describe('유저 객체 테스트', () => {
     }).toThrow();
 
     expect(() => {
-      new User('9102');
+      new User('910.2');
     }).toThrow();
   });
 
