@@ -56,7 +56,7 @@ describe('컴퓨터 테스트', () => {
     const computer = new Computer(COMPUTER_NUMBERS);
     const OUTPUT = { ball: 0, strike: 0 };
 
-    const matchReulst = computer.getMatchCount();
+    const matchReulst = computer.matchNumbers();
 
     expect(matchReulst).toEqual(OUTPUT);
   });
@@ -67,8 +67,7 @@ describe('컴퓨터 테스트', () => {
     const NUMBERS = [2, 1, 9];
     const OUTPUT = { ball: 2, strike: 0 };
 
-    computer.matchNumbers(NUMBERS);
-    const matchReulst = computer.getMatchCount();
+    const matchReulst = computer.matchNumbers(NUMBERS);
 
     expect(matchReulst).toEqual(OUTPUT);
   });
@@ -79,8 +78,7 @@ describe('컴퓨터 테스트', () => {
     const NUMBERS = [1, 9, 3];
     const OUTPUT = { ball: 0, strike: 2 };
 
-    computer.matchNumbers(NUMBERS);
-    const matchReulst = computer.getMatchCount();
+    const matchReulst = computer.matchNumbers(NUMBERS);
 
     expect(matchReulst).toEqual(OUTPUT);
   });
@@ -91,8 +89,7 @@ describe('컴퓨터 테스트', () => {
     const NUMBERS = [5, 1, 3];
     const OUTPUT = { ball: 1, strike: 1 };
 
-    computer.matchNumbers(NUMBERS);
-    const matchReulst = computer.getMatchCount();
+    const matchReulst = computer.matchNumbers(NUMBERS);
 
     expect(matchReulst).toEqual(OUTPUT);
   });

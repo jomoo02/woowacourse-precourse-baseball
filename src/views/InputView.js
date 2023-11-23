@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import PRINT from '../constants/print';
+import PRINT from '../constants/print.js';
 
 const InputView = {
   start() {
@@ -9,14 +9,13 @@ const InputView = {
   },
 
   async readUserNumbers() {
-    const userNumbers = await Console.readLineAsync(`${PRINT.inputNumbers}\n`);
+    const userNumbers = await Console.readLineAsync(`${PRINT.inputNumbers}`);
 
     return userNumbers;
   },
 
   async readReGameQuestion() {
-    Console.print(PRINT.reGameQuestion);
-    const reGameAnswer = await Console.readLineAsync(``);
+    const reGameAnswer = await Console.readLineAsync(`${PRINT.reGameQuestion}\n`);
 
     return reGameAnswer;
   },

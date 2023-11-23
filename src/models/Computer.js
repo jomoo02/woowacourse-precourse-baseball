@@ -1,19 +1,11 @@
-import User from './User';
+import User from './User.js';
 
 class Computer extends User {
-  #count;
+  matchNumbers(userNumbers = []) {
+    const ballCount = this.#matchBall(userNumbers);
+    const strikeCount = this.#matchStrike(userNumbers);
 
-  constructor(numbers) {
-    super(numbers);
-    this.#count = { ball: 0, strike: 0 };
-  }
-
-  getMatchCount() {
-    return this.#count;
-  }
-
-  matchNumbers(userNumbers) {
-    this.#matchBall(userNumbers).#matchStrike(userNumbers);
+    return { ball: ballCount, strike: strikeCount };
   }
 
   #matchBall(userNumbers) {
@@ -24,9 +16,7 @@ class Computer extends User {
       return isExistBall;
     }).length;
 
-    this.#count.ball = ballCount;
-
-    return this;
+    return ballCount;
   }
 
   #matchStrike(userNumbers) {
@@ -35,9 +25,7 @@ class Computer extends User {
       (computerNumber, index) => computerNumber === userNumbers[index],
     ).length;
 
-    this.#count.strike = strikeCount;
-
-    return this;
+    return strikeCount;
   }
 }
 

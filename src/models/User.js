@@ -1,4 +1,4 @@
-import ValidateUser from '../ValidationUser';
+import ValidateUser from '../ValidationUser.js';
 
 class User {
   #numbers;
@@ -12,7 +12,7 @@ class User {
   }
 
   static #validateNumbers(numbers) {
-    return ValidateUser.validateNumbers(numbers);
+    return ValidateUser.validateNumbers(numbers, 'user');
   }
 }
 

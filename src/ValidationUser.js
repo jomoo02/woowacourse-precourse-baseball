@@ -1,5 +1,5 @@
-import { IN_RANGE, NUMBERS_LENGTH } from './constants/setting';
-import ERROR_MESSAGE from './constants/errorMessage';
+import { IN_RANGE, NUMBERS_LENGTH } from './constants/setting.js';
+import ERROR_MESSAGE from './constants/errorMessage.js';
 
 const ValidateUser = {
   validateNumbers(numbers) {
@@ -54,6 +54,10 @@ const ValidateUser = {
   },
 
   convertToArray(numbers) {
+    if (!numbers) {
+      this.throwError();
+    }
+
     const numbersArray = numbers.split('').map((number) => Number(number));
     return numbersArray;
   },

@@ -1,21 +1,34 @@
 import { Console } from '@woowacourse/mission-utils';
-import PRINT from '../constants/print';
+import PRINT from '../constants/print.js';
 
 const OutputView = {
   outputMatchResult(result) {
-    const resultArray = Object.entries(result);
+    const matchResultString = this.makeMatchResultString(result);
+    Console.print(matchResultString);
 
-    const resultString = resultArray.reduce((acc, cur) => acc + this.makeMatchString(cur), '');
-
-    Console.print(resultString);
+    return this;
   },
 
-  makeMatchString([type, count]) {
-    if (count) {
-      return `${count}${PRINT[type]}`;
+  checkAllMatch({ strike }) {
+    if (strike === 3) {
+      Console.print(PRINT.allMatch);
     }
 
-    return '';
+    return this;
+  },
+
+  makeMatchResultString(result) {
+    const filteredMatchResultArray = Object.entries(result).filter(([, count]) => count !== 0);
+
+    if (filteredMatchResultArray.length === 0) {
+      return PRINT.none;
+    }
+
+    const matchResultString = filteredMatchResultArray.map(
+      ([type, count]) => `${count}${PRINT[type]}`,
+    );
+
+    return matchResultString.join(' ');
   },
 };
 
