@@ -1,4 +1,4 @@
-import ValidateUser from '../ValidationUser.js';
+import ValidateUser from '../Validations/ValidationUser.js';
 
 class User {
   #numbers;

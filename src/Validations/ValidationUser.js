@@ -1,5 +1,5 @@
-import { IN_RANGE, NUMBERS_LENGTH } from './constants/setting.js';
-import ERROR_MESSAGE from './constants/errorMessage.js';
+import { IN_RANGE, NUMBERS_LENGTH } from '../constants/setting.js';
+import ERROR_MESSAGE from '../constants/errorMessage.js';
 
 const ValidateUser = {
   validateNumbers(numbers) {

@@ -1,5 +1,6 @@
 import User from './models/User.js';
 import Computer from './models/Computer.js';
+import ReGame from './models/ReGame.js';
 import InputView from './views/InputView.js';
 import OutputView from './views/OutputView.js';
 import pickNumbersInRange from './pickNumbersInRange.js';
@@ -35,11 +36,10 @@ class Game {
   async #askReGame() {
     const reGameAnswer = await InputView.readReGameQuestion();
 
-    if (reGameAnswer === '1') {
-      return this.setGame();
+    const reGame = new ReGame(reGameAnswer);
+    if (reGame.isReGame()) {
+      await this.setGame();
     }
-
-    return this;
   }
 
   static #createComputer() {
