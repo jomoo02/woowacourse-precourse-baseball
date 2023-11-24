@@ -4,8 +4,9 @@ import ReGame from './models/ReGame.js';
 import InputView from './views/InputView.js';
 import OutputView from './views/OutputView.js';
 import pickNumbersInRange from './pickNumbersInRange.js';
+import { THREE_STRIKE } from './constants/setting.js';
 
-class Game {
+class GameController {
   #computer;
 
   async startGame() {
@@ -14,20 +15,20 @@ class Game {
   }
 
   setGame() {
-    this.#computer = Game.#createComputer();
+    this.#computer = GameController.#createComputer();
     return this.playGame();
   }
 
   async playGame() {
-    const user = await Game.#createUser();
+    const user = await GameController.#createUser();
     const matchResult = this.#computer.matchNumbers(user.getNumbers());
-    await this.#outputResult(matchResult);
+    return this.#outputResult(matchResult);
   }
 
   #outputResult(matchResult) {
     OutputView.outputMatchResult(matchResult).checkAllMatch(matchResult);
 
-    if (matchResult.strike === 3) {
+    if (matchResult.strike === THREE_STRIKE) {
       return this.#askReGame();
     }
     return this.playGame();
@@ -57,4 +58,4 @@ class Game {
   }
 }
 
-export default Game;
+export default GameController;

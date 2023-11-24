@@ -1,9 +1,9 @@
-import Game from './Game.js';
+import GameController from './GameController.js';
 
 class App {
   // eslint-disable-next-line class-methods-use-this
   async play() {
-    const game = new Game();
+    const game = new GameController();
     await game.startGame();
   }
 }
